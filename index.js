@@ -1,3 +1,5 @@
+const district = require('./models/District');
+
 const express=require('express'),
     app=express(),
     mongoose=require('mongoose')
@@ -45,3 +47,13 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT,()=>{
     console.log("Server Started!!")
 })
+
+function addnewDistrict(name,phone) {
+    var district_=new district({
+        name:name,
+        phoneno:phone
+    })
+    district_.save((err,res)=>{
+        console.log(res)
+    })
+}
