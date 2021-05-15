@@ -25,6 +25,21 @@ mongoose.connect(process.env.DBURL,connectionParams)
 })
 //MONGODB CONNECTION COMPLETED
 
+app.get("/",(req,res)=>{
+    res.render("home")
+})
+
+app.get("/view",(req,res)=>{
+    res.render("view")
+})
+
+app.get("/request",(req,res)=>{
+    res.render("request")
+})
+
+app.get("/login",(req,res)=>{
+    res.render("login")
+})
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT,()=>{
