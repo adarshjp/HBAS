@@ -34,10 +34,14 @@ app.get("/",(req,res)=>{
 app.get("/view",(req,res)=>{
     res.render("view")
 })
-
+// Patient Request form starts
 app.get("/request",(req,res)=>{
     res.render("request")
 })
+app.post("/request",(req,res)=>{
+    console.log(req.body.patient)
+})
+//Patient request form ends
 
 app.get("/login",(req,res)=>{
     res.render("login")
