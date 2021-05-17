@@ -1,9 +1,29 @@
 <%- include("partials/header") %>
 <p>Login Page </p>
 <!-- Should have a form with username and pass inputs and login button -->
-<form action="/login" method="post">
-    <input type="text" name="username" placeholder="Username">
-    <input type="password" name="password" placeholder="Password">
-    <input type="submit" value="Login">
-</form>
+<div id="loginbody">
+<div class="container text-center p-4 align-items-center shadow-lg rounded" id="logincontainer">
+    <div class="row align-items-center justify-content-center" id="loginrow">
+        <div class="col-10 col-sm-6 text-center p-2">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" alt="Avatar" class="avatar img-fluid">
+        </div>
+        <div class="col-10 col-sm-6 text-center">
+            <h2><u>Hospital Login</u></h2>
+            <form method="POST" action="">
+                <div class="p-2 form-group">
+                    <label for="name" class="col-form-label"><i class="fa fa-user-circle-o"></i> User name</label>
+                    <input name="uname" type="text" class="form-control" id="uname" required>
+                </div>
+                <div class="p-2 form-group">
+                    <label for="password" class="col-form-label"><i class="fa fa-lock"></i> Password</label>
+                    <input name="password" type="password" class="form-control" id="password" required>
+                </div>
+                <div class="p-2 form-group">
+                    <button type="button" class="btn btn-outline-secondary btn-lg">Login</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
 <%- include("partials/footer") %>

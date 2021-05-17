@@ -1,65 +1,62 @@
 <%- include("partials/header") %>
-<div class="container container-fluid">
-    <form action="/request" method="post">
+<div id="requestbody">
+<div class="container container-fluid shadow-lg rounded" id="requestcontainer">
+    <h3 class="text-center p-1" id="requesth3"><u>Covid-19 Bed Request form</u></form></h3>
+    <form action="" method="post">
         <div class="row">
             <div class="p-2 form-group col-12 col-sm-6">
                 <label for="name" class="col-form-label">Name</label>
                 <input name="patient[name]" type="text" class="form-control" id="name" required>
             </div>
-            <div class="p-2 form-group col-12 col-sm-6">
-                <label for="PID" class="col-form-label">Patient ID</label>
-                <input name="patient[pid]" type="text" class="form-control" id="pid" required>
-            </div>
-        </div>
-        <div class="row">
-            <div class="p-2 form-group col-12 col-sm-6">
+            <div class="p-2 form-group  col-12 col-sm-6">
                 <label for="age" class="col-form-label">Age</label>
                 <input name="patient[age]" type="text" class="form-control" id="age" required>
             </div>
+        </div>
+        <div class="row">
             <div class="p-2 form-group col-12 col-sm-6">
                 <label for="pno" class="col-form-label">Phone Number</label>
                 <input name="patient[pno]" type="text" class="form-control" id="pno" required>
             </div>
-        </div>
-        <div class="row">
             <div class="p-2 form-group col-12 col-sm-6">
-                <label for="cname" class="col-form-label">Caretaker Name</label>
-                <input name="patient[cname]" type="text" class="form-control" id="patient[cname]" required>
-            </div>
-            <div class="p-2 form-group col-12 col-sm-6">
-                <label for="cpno" class="col-form-label">Caretaker's Phone No.</label>
-                <input name="patient[cpno]" type="text" class="form-control" id="patient[cpno]" required>
+                <label for="address" class="col-form-label">Address</label>
+                <textarea class="form-control" id="address" name="patient[address]" required></textarea>
             </div>
         </div>
         <div class="row">
             <div class="form-group p-2 col-12 col-sm-6">
                 <label for="district" class="col-form-label">District</label>
-                  <select name="patient[district]" id="district" class="form-select" required>
+                  <select name="patient[district]" id="district" class="form-control" required>
                     <option value="dk">Dakshina Kannada</option>
                     <option value="up">Udupi</option>
                     <option value="ban">Bangalore</option>
                     <option value="mysore">Mysore</option>
                   </select>
             </div>
-            <div class="form-group p-2 col-12 col-sm-6">
+            <div class="mb-3 form-group p-2 col-12 col-sm-6">
                 <label for="typeofbed" class="col-form-label">Type of bed needed</label>
-                  <select name="patient[typeofbed]" id="typeofbed" class="form-select" required>
+                  <select name="patient[typeofbed]" id="typeofbed" class="form-control" required>
                     <option value="general">General bed</option>
-                    <option value="o2">Oxygen bed</option>
+                    <option value="o2">Oxygen general bed</option>
                     <option value="icu">ICU bed</option>
                     <option value="icuwithven">ICU with ventilator bed</option>
                   </select>
             </div>
         </div>
-        <div class="row d-flex justify-content-center form-group">
+        <div class="row">
             <div class="p-2 form-group col-12 col-sm-6">
-                <label for="address" class="col-form-label">Address</label>
-                <textarea class="form-control" id="address" name="patient[address]" required></textarea>
+                <label for="cname" class="col-form-label">Caretaker Name</label>
+                <input name="patient[cname]" type="text" class="form-control" id="cname" required>
+            </div>
+            <div class="p-2 form-group col-12 col-sm-6">
+                <label for="cpno" class="col-form-label">Caretaker's Phone No.</label>
+                <input name="patient[cpno]" type="text" class="form-control" id="cpno" required>
             </div>
         </div>
-        <div class="form-group d-flex justify-content-center p-1">
-            <button type="submit" class="btn btn-primary">Request</button></a>
+        <div class="form-group d-flex justify-content-center p-2">
+            <button type="submit" class="btn btn-outline-dark btn-lg">Request</button></a>
         </div>
     </form>
+</div>
 </div>
 <%- include("partials/footer") %>
