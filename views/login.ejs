@@ -1,4 +1,9 @@
 <%- include("partials/header") %>
 <p>Login Page </p>
 <!-- Should have a form with username and pass inputs and login button -->
+<form action="/login" method="post">
+    <input type="text" name="username" placeholder="Username">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" value="Login">
+</form>
 <%- include("partials/footer") %>
