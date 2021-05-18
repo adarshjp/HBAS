@@ -3,6 +3,7 @@ html {
   }
 body{
   background-color: rgb(13, 31, 49);
+  color: floralwhite;
 }
 #requestbody{
   padding: 50px 10px 20px 10px;
@@ -16,7 +17,7 @@ body{
 }
 
 #loginbody{
-  padding: 50px 10px 30px 10px;
+  padding: 85px 10px 30px 10px;
 }
 #logincontainer
 {
@@ -24,7 +25,6 @@ body{
     width: fit-content;
     
 }
-
 .avatar {
         border-radius: 50%;
 }
