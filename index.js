@@ -1,5 +1,7 @@
 const District = require('./models/District');
 const Hospital=require('./models/Hospital')
+const Patient=require('./models/Patient')
+
 const express=require('express'),
     passport=require('passport')
     LocalStrategy=require("passport-local"),
@@ -49,6 +51,7 @@ app.use(function(req,res,next){
 //Auth setup ends
 
 app.get("/",(req,res)=>{
+    //console.log(req.user)	 
     res.render("home")
 })
 
@@ -57,10 +60,39 @@ app.get("/view",(req,res)=>{
 })
 // Patient Request form starts
 app.get("/request",(req,res)=>{
-    res.render("request")
+    District.find({},{name:1,_id:0},(err,district)=>{
+        if(err)
+            console.log(err)
+        else
+            res.render("request",{district:district})
+    })
+  
 })
+
 app.post("/request",(req,res)=>{
-    console.log(req.body.patient)
+    District.find({name:req.body.patient.district},(err,result)=>{
+        if(err)
+            console.log("District id not found "+err)
+        else{
+            var newPatient = new Patient({
+                name:req.body.patient.name,
+                age:req.body.patient.age,
+                address:req.body.patient.address,
+                phoneno:req.body.patient.pno,
+                status:'Requested',
+                typeofbedreq:req.body.patient.typeofbed,
+                caretakername:req.body.patient.cname,
+                caretakerphno:req.body.patient.cpno,
+                districtid:result[0]._id
+            })
+            Patient.create(newPatient,(err,newpatient)=>{
+                if(err)
+                    console.log(err)
+                else
+                    res.redirect("/request")
+            })
+        }
+    })
 })
 //Patient request form ends
 
@@ -116,7 +148,7 @@ app.post("/login",passport.authenticate("local",{
 	successRedirect:"/",
 	failureRedirect:"/register"
 	}),function(req,res){
-			 
+		console.log(req.user)	 
 });
 
 app.get("/logout",function(req,res){
@@ -137,4 +169,29 @@ function addnewDistrict(name,phone) {
     district_.save((err,res)=>{
         console.log(res)
     })
+}
+
+function generatePid(){
+    Patient.countDocuments((err,res)=>{
+        if(err)
+            console.log(err)
+        else
+        {
+            var pid=res+1
+            return pid
+        }
+    })
+}
+
+function getDistrictid(dname){
+    let did
+    District.find({name:dname},(err,res)=>{
+        if(err)
+            console.log(err)
+        else{
+            did=res[0]._id
+        }
+            
+    })
+    console.log(did)
 }

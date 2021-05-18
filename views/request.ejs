@@ -27,19 +27,18 @@
             <div class="form-group p-2 col-12 col-sm-6">
                 <label for="district" class="col-form-label">District</label>
                   <select name="patient[district]" id="district" class="form-control" required>
-                    <option value="dk">Dakshina Kannada</option>
-                    <option value="up">Udupi</option>
-                    <option value="ban">Bangalore</option>
-                    <option value="mysore">Mysore</option>
+                    <% district.forEach((district)=>{ %>
+                        <option value="<%= district.name%>"><%= district.name%></option>
+                    <% }) %>
                   </select>
             </div>
             <div class="mb-3 form-group p-2 col-12 col-sm-6">
                 <label for="typeofbed" class="col-form-label">Type of bed needed</label>
                   <select name="patient[typeofbed]" id="typeofbed" class="form-control" required>
-                    <option value="general">General bed</option>
-                    <option value="o2">Oxygen general bed</option>
-                    <option value="icu">ICU bed</option>
-                    <option value="icuwithven">ICU with ventilator bed</option>
+                    <option value="general">General</option>
+                    <option value="oxygen">Oxygen</option>
+                    <option value="icu">ICU</option>
+                    <option value="icu_v">ICU with Ventilator</option>
                   </select>
             </div>
         </div>
