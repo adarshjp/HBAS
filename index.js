@@ -1,9 +1,10 @@
 const District = require('./models/District');
 const Hospital=require('./models/Hospital')
 const Patient=require('./models/Patient')
+const PatientsAdmitted=require('./models/patientadmitted')
 
 const express=require('express'),
-    passport=require('passport')
+    passport=require('passport');
     LocalStrategy=require("passport-local"),
     app=express(),
     mongoose=require('mongoose')
@@ -51,7 +52,7 @@ app.use(function(req,res,next){
 //Auth setup ends
 
 app.get("/",(req,res)=>{
-    //console.log(req.user)	 
+    console.log(PatientsAdmitted)	 
     res.render("home")
 })
 
@@ -88,8 +89,10 @@ app.post("/request",(req,res)=>{
             Patient.create(newPatient,(err,newpatient)=>{
                 if(err)
                     console.log(err)
-                else
+                else{
                     res.redirect("/request")
+                }
+                    
             })
         }
     })
@@ -145,8 +148,8 @@ app.get("/login",function(req,res){
 });
 
 app.post("/login",passport.authenticate("local",{
-	successRedirect:"/",
-	failureRedirect:"/register"
+	successRedirect:"/home",
+	failureRedirect:"/login"
 	}),function(req,res){
 		console.log(req.user)	 
 });
@@ -156,6 +159,17 @@ app.get("/logout",function(req,res){
 	res.redirect("/");
 });
 // Hospital Auth ends
+
+app.get("/home",isLoggedIn,(req,res)=>{
+    res.render("hosphome",{user:req.user})
+})
+
+function isLoggedIn(req,res,next){
+	if(req.isAuthenticated())
+		return next();
+	res.redirect("/login");
+}
+
 const PORT = process.env.PORT || 3000
 app.listen(PORT,()=>{
     console.log("Server Started!!")
