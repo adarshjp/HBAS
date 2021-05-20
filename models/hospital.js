@@ -23,6 +23,12 @@ const hospSchema=new mongoose.Schema({
         oxygen:Number,
         icu:Number,
         icu_v:Number
+    },
+    avaliablebeds:{
+        general:Number,
+        oxygen:Number,
+        icu:Number,
+        icu_v:Number
     }
 })
 

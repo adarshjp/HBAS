@@ -90,10 +90,39 @@ app.post("/request",(req,res)=>{
                 if(err)
                     console.log(err)
                 else{
+                    Hospital.find({districtid:newpatient.districtid},{avaliablebeds:1,districtid:1,_id:1},(err,hosp)=>{
+                        for(i=0;i<hosp.length;i++)
+                        {
+                            var hospital=hosp[i]
+                            if(hosp[i].avaliablebeds[newpatient.typeofbedreq]>0){
+                                Patient.findOneAndUpdate({_id:newpatient._id},{status:'Alloted',allotmenttime:Date.now()},(err,upPatient)=>{
+                                    if(err)
+                                        console.log(err)
+                                    else
+                                        console.log(upPatient)
+                                })
+                                //console.log(hospital._id)
+                                var patadm=new PatientsAdmitted({
+                                    patientid:newpatient._id,
+                                    hospitalid:hospital._id,
+                                    districtid:hospital.districtid,
+                                    typeofbed:newpatient.typeofbedreq
+                                })
+                                PatientsAdmitted.create(patadm,(err,newpatadm)=>{
+                                    if(err)
+                                        console.log(err)
+                                    else
+                                        console.log(newpatadm)
+                                })
+                                break;
+                            }
+                        }
+                    })
                     res.redirect("/request")
                 }
                     
             })
+            
         }
     })
 })
@@ -128,6 +157,12 @@ app.post("/register",function(req,res){
                     oxygen:req.body.hosp.ooxy,
                     icu:req.body.hosp.oicu,
                     icu_v:req.body.hosp.oicv
+                },
+                avaliablebeds:{
+                    general:req.body.hosp.agen,
+                    oxygen:req.body.hosp.aoxy,
+                    icu:req.body.hosp.aicu,
+                    icu_v:req.body.hosp.aicv
                 }
             })
             Hospital.register(newHosp,req.body.hosp.pass,(err,hospital)=>{
