@@ -13,8 +13,7 @@ const patadmSchema=new mongoose.Schema({
         ref:'District'
     },
     joining:{
-        type:Date,
-        default:Date.now
+        type:Date
     },
     leaving:Date,
     typeofbed:String
