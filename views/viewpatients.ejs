@@ -1,0 +1,25 @@
+<%- include("partials/header") %>
+<p><%= user.name %></p>
+<table>
+    <tr>
+        <th>Patient ID </th>
+        <th>Type of bed</th>
+        <th>Status</th>
+    </tr>
+    <% patients.forEach((patients)=>{ %>
+        <tr>
+            <td><%= patients._id%></td>
+            <td><%= patients.typeofbedreq%></td>
+            <td>
+                <form action="/discharge/<%= patients._id%>/Discharged" method="post">
+                    <input type="submit" value="Discharge">
+                </form>
+                <form action="/discharge/<%= patients._id%>/Died" method="post">
+                    <input type="submit" value="Died">
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<a href="/home">Home</a>
+<%- include("partials/footer") %>
