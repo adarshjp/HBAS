@@ -245,6 +245,49 @@ app.post("/admit/:id",isLoggedIn,(req,res)=>{
     res.redirect("/admit")
 })
 
+app.get("/viewpatients",isLoggedIn,(req,res)=>{
+    PatientsAdmitted.find({hospitalid:req.user._id}).distinct('patientid',(err,id)=>{
+        if(err) console.log(err)
+        else{
+            console.log(id)
+            Patient.find({_id:{$in:id},status:'Admitted'},(err,admittedpatients)=>{
+                if(err) console.log(err)
+                else {
+                    console.log(admittedpatients)
+                    res.render('viewpatients',{patients:admittedpatients,user:req.user})
+                }
+            })
+        }
+    })
+})
+
+app.post("/discharge/:id/:status",isLoggedIn,(req,res)=>{
+    console.log(req.params)
+    /*if(req.params.status==='discharge')
+        res.send("Discharged")
+    else
+        res.send("Died")*/
+    Patient.findOneAndUpdate({_id:req.params.id},{status:req.params.status},(err,statusUpPatient)=>{
+        if(err) console.log(err)
+        else{
+            console.log(statusUpPatient)
+            var type=statusUpPatient.typeofbedreq
+            var key1='avaliablebeds.'+type
+            var key2='occupiedbeds.'+type
+            Hospital.findOneAndUpdate({_id:req.user._id},{$inc:{[key1]:1,[key2]:-1}},(err,updatedhosp)=>{
+                if(err) console.log(err)
+                else console.log(updatedhosp)
+            })
+        } 
+    })
+    PatientsAdmitted.findOneAndUpdate({patientid:req.params.id},{leaving:Date.now()},(err,datepat)=>{
+        if(err) console.log(err)
+        else console.log(datepat)
+    })
+    res.redirect("/viewpatients")
+})
+
+
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated())
 		return next();
