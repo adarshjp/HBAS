@@ -111,9 +111,19 @@ app.post("/request",(req,res)=>{
                                 PatientsAdmitted.create(patadm,(err,newpatadm)=>{
                                     if(err)
                                         console.log(err)
-                                    else
+                                    else{
                                         console.log(newpatadm)
+                                        /*var type=newpatadm.typeofbed
+                                        var key1='avaliablebeds.'+type
+                                        var key2='occupiedbeds.'+type
+                                        Hospital.findOneAndUpdate({_id:newpatadm.hospitalid},{$inc:{[key1]:-1,[key2]:1}},(err,updatedhosp)=>{
+                                            if(err) console.log(err)
+                                            else console.log(updatedhosp)
+                                        })*/
+                                    }
+                                      
                                 })
+                               
                                 break;
                             }
                         }
@@ -197,6 +207,42 @@ app.get("/logout",function(req,res){
 
 app.get("/home",isLoggedIn,(req,res)=>{
     res.render("hosphome",{user:req.user})
+})
+app.get("/admit",(req,res)=>{
+    PatientsAdmitted.find().distinct('patientid',(err,id)=>{
+        if(err) console.log(err)
+        else{
+            console.log(id)
+            Patient.find({status:'Alloted',_id:{$in:id}},(err,allotedpatients)=>{
+                if(err) console.log(err)
+                else res.render("admit",{patients:allotedpatients,user:req.user})
+            })
+        }
+    })
+})
+//
+app.post("/admit/:id",isLoggedIn,(req,res)=>{
+    console.log(req.params.id)
+    Patient.findOneAndUpdate({_id:req.params.id},{status:'Admitted'},(err,admittedPatient)=>{
+        if(err) console.log(err)
+        else{
+            console.log(admittedPatient)
+        } 
+    })
+    PatientsAdmitted.findOneAndUpdate({patientid:req.params.id},{joining:Date.now()},(err,uppattime)=>{
+        if(err) console.log(err)
+        else{
+            console.log(uppattime)
+            var type=uppattime.typeofbed
+            var key1='avaliablebeds.'+type
+            var key2='occupiedbeds.'+type
+            Hospital.findOneAndUpdate({_id:uppattime.hospitalid},{$inc:{[key1]:-1,[key2]:1}},(err,updatedhosp)=>{
+                if(err) console.log(err)
+                else console.log(updatedhosp)
+            })
+        } 
+    })
+    res.redirect("/admit")
 })
 
 function isLoggedIn(req,res,next){

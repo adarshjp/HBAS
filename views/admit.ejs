@@ -1,0 +1,22 @@
+<%- include("partials/header") %>
+<p><%= user.name %></p>
+<table>
+    <tr>
+        <th>Patient ID </th>
+        <th>Type of bed</th>
+        <th>Admit</th>
+    </tr>
+    <% patients.forEach((patients)=>{ %>
+        <tr>
+            <td><%= patients._id%></td>
+            <td><%= patients.typeofbedreq%></td>
+            <td>
+                <form action="/admit/<%= patients._id%>" method="post">
+                    <input type="submit" value="Admit">
+                </form>
+            </td>
+        </tr>
+    <% }) %>
+</table>
+<a href="/home">Home</a>
+<%- include("partials/footer") %>
