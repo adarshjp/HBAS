@@ -272,11 +272,45 @@ app.post("/discharge/:id/:status",isLoggedIn,(req,res)=>{
         else{
             console.log(statusUpPatient)
             var type=statusUpPatient.typeofbedreq
-            var key1='avaliablebeds.'+type
+            /*var key1='avaliablebeds.'+type
             var key2='occupiedbeds.'+type
             Hospital.findOneAndUpdate({_id:req.user._id},{$inc:{[key1]:1,[key2]:-1}},(err,updatedhosp)=>{
                 if(err) console.log(err)
-                else console.log(updatedhosp)
+                else{
+                    console.log(updatedhosp)
+                    Patient.findOneAndUpdate({districtid:req.user.districtid,status:'Requested',typeofbedreq:type},{status:'Alloted',allotmenttime:Date.now()},(err,allottedpatient)=>{
+                        if(err) console.log(err)
+                        else{
+
+                        }
+                    })
+                }
+            })*/    
+            Patient.findOneAndUpdate({districtid:req.user.districtid,status:'Requested',typeofbedreq:type},{status:'Alloted',allotmenttime:Date.now()},(err,allottedpatient)=>{
+                if(err) console.log(err)
+                else if(allottedpatient==null){
+                    var key1='avaliablebeds.'+type
+                    var key2='occupiedbeds.'+type
+                    Hospital.findOneAndUpdate({_id:req.user._id},{$inc:{[key1]:1,[key2]:-1}},(err,updatedhosp)=>{
+                        if(err) console.log(err)
+                        else{
+                            console.log(updatedhosp)
+                        }
+                    })
+                }else{
+                    console.log(allottedpatient)
+                    var patadm=new PatientsAdmitted({
+                        patientid:allottedpatient._id,
+                        hospitalid:req.user._id,
+                        districtid:req.user.districtid,
+                        typeofbed:allottedpatient.typeofbedreq
+                    })
+                    PatientsAdmitted.create(patadm,(err,newpatadm)=>{
+                        if(err) console.log(err)
+                        else console.log(newpatadm)
+                    })
+                }
+
             })
         } 
     })
