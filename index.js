@@ -113,13 +113,13 @@ app.post("/request",(req,res)=>{
                                         console.log(err)
                                     else{
                                         console.log(newpatadm)
-                                        /*var type=newpatadm.typeofbed
+                                        var type=newpatadm.typeofbed
                                         var key1='avaliablebeds.'+type
                                         var key2='occupiedbeds.'+type
                                         Hospital.findOneAndUpdate({_id:newpatadm.hospitalid},{$inc:{[key1]:-1,[key2]:1}},(err,updatedhosp)=>{
                                             if(err) console.log(err)
                                             else console.log(updatedhosp)
-                                        })*/
+                                        })
                                     }
                                       
                                 })
@@ -233,13 +233,13 @@ app.post("/admit/:id",isLoggedIn,(req,res)=>{
         if(err) console.log(err)
         else{
             console.log(uppattime)
-            var type=uppattime.typeofbed
+            /*var type=uppattime.typeofbed
             var key1='avaliablebeds.'+type
             var key2='occupiedbeds.'+type
             Hospital.findOneAndUpdate({_id:uppattime.hospitalid},{$inc:{[key1]:-1,[key2]:1}},(err,updatedhosp)=>{
                 if(err) console.log(err)
                 else console.log(updatedhosp)
-            })
+            })*/
         } 
     })
     res.redirect("/admit")
@@ -287,6 +287,15 @@ app.post("/discharge/:id/:status",isLoggedIn,(req,res)=>{
     res.redirect("/viewpatients")
 })
 
+app.get("/view/:id",isLoggedIn,(req,res)=>{
+    Patient.find({_id:req.params.id},(err,fulldetails)=>{
+        if(err) console.log(err)
+        else{
+            console.log('Full',fulldetails)
+            res.render("viewindividual",{patient:fulldetails[0]})
+        } 
+    })
+})
 
 function isLoggedIn(req,res,next){
 	if(req.isAuthenticated())
