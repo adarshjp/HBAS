@@ -48,3 +48,11 @@ body{
 #rowimageborder{
   border: 10px solid rgb(73, 24, 95);
 }
+#hosptable {
+  table-layout: fixed;
+  width: 100%; 
+} 
+
+th,td {
+  border: 1px solid black;
+}
