@@ -8,7 +8,7 @@
     </tr>
     <% patients.forEach((patients)=>{ %>
         <tr>
-            <td><%= patients._id%></td>
+            <td><a href="/view/<%= patients._id%>"><%= patients._id%></a></td>
             <td><%= patients.typeofbedreq%></td>
             <td>
                 <form action="/admit/<%= patients._id%>" method="post">
