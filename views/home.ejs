@@ -1,4 +1,108 @@
 <%- include("partials/header") %>
-<h1>Home page</h1>
-Hello 
+<div class="container container-fluid text-center p-2" id="homecontainer">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-secondary rounded-pill" id="navbarnav">
+      <div class="container">
+          <a class="navbar-brand p-2 mr-auto" href="#">
+              <img class="img-fluid text-center" src="https://cdn2.iconfinder.com/data/icons/health-care-rounded-4/512/xxx025-512.png" height="30" width="41">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Navbar" aria-controls="Navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon p-2"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="Navbar">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="#"><span class="fa fa-home fa-lg"></span> Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/request"><span class="fa fa-heartbeat fa-lg"></span> Request</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login"><span class="fa fa-sign-in"></span> Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/view"><span class="fa fa-eye fa-lg"></span> View details</a></li>
+            </ul>
+          </div>
+      </div>
+    </nav>
+    <div class="text-center p-2">
+        <h3>keep safe,keep well<br>most of all</h3>
+        <h1 id="homekeepsafe">keep faith</h1>
+        <strong>we will get through this together</strong>
+        <h2>stay home stay safe save lives</h2>
+        <div class="p-2 text-center">
+        <button type="button" class="btn btn-outline-warning btn-lg rounded-pill">Request the bed</button>
+        </div>
+    </div>
+    
+    
+    <div class="row row-content justify-content-center p-2">
+        <div class="col-10 col-sm-6 col-md-4 p-1">
+          <div class="card shadow-lg">
+              <img src="https://www.icn.ch/sites/default/files/inline-images/Picture1.png" class="card-img-top" alt="...">
+          </div>
+        </div>
+        <div class="col-10 col-sm-6 col-md-4 p-1 shadow-lg">
+            <div class="card shadow-lg">
+              <img src="https://www.health.nsw.gov.au/Infectious/covid-19/PublishingImages/dr-chant-message.png" class="card-img-top" alt="...">
+            </div>
+        </div>
+        <div class="col-10 col-sm-6 col-md-4 p-1 shadow-lg">
+            <div class="card shadow-lg">
+              <img src="https://cdn.trendhunterstatic.com/thumbs/informative-covid19-visuals.jpeg" class="card-img-top" alt="...">
+            </div>
+        </div>
+        <div class="p-5 text-center">
+            <a class="btn btn-outline-warning btn-lg rounded-pill p-2" href="/request">Request the bed</a>
+            <a class="btn btn-outline-warning btn-lg rounded-pill p-2" href="/login">Hospital Login</a>
+        </div>
+    </div>
+
+    <div class="row align-items-center p-3">
+        <div class="col-12 col-sm-6 text-center" >
+          <h3 id="headingh3">Wear Masks</h3>
+          <p class="d-none d-md-block">Weaing a face mask in public can protect yourself and prevent spreading of covid-19.Wearing masks is an extremely important habit that every one of us should be applying since this simple step could significantly reduce the risk of transmission.</p>
+        </div>
+        <div class="col-12 col-sm-6 shadow-lg">
+          <img class="img-fluid text-center" id="rowimageborder" src="https://www.medianews4u.com/wp-content/uploads/2020/05/Wunderman-Thompson-South-Asia-and-Times-of-India-say-MAKE-YOUR-OWN-MaskIndia.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="row align-items-center p-3">
+        <div class="col-12 col-sm-6 text-center order-sm-last" >
+            <h3 id="headingh3">Maintain Social Disatncing</h3>
+            <p class="d-none d-md-block">Social distancing, also called 'physical distancing', means keeping a safe space between yourself and other people.To practice social or physical distancing, stay at least 6 feet (about 2 arm lengths) from other people in both indoor and outdoor spaces.</p>
+        </div>
+        <div class="col-12 col-sm-6 order-sm-first shadow-lg">
+          <img class="img-fluid text-center" id="rowimageborder" src="https://www.cdc.gov/coronavirus/2019-ncov/images/social-media-toolkit/316917-AL_COVID_stop_the_spread_6ft_edit_new_template.png" alt="">
+        </div>
+    </div>
+
+    <div class="row align-items-center p-3">
+        <div class="col-12 col-sm-6 text-center" >
+            <h2 id="headingh3">Wash hands regularly</h2>
+            <p class="d-none d-md-block">To prevent the spread of germs during the COVID-19 pandemic, you should also wash your hands with soap and water for at least 20 seconds or use a hand sanitizer with at least 60% alcohol to clean hands BEFORE and AFTER:<br>
+              Touching your eyes, nose, or mouth<br>
+              Touching your mask<br>
+              Entering and leaving a public place
+            </p>
+        </div>
+        <div class="col-12 col-sm-6 shadow-lg">
+            <img class="img-fluid text-center" src="https://www.cdc.gov/handwashing/images/handwashing-day/2020/wash-your-hands-banner.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="row align-items-center p-3">
+        <div class="col-12 col-sm-6 text-center order-sm-last" >
+          <h3 id="headingh3">Get Vaccinated Soon</h3>
+          <p class="d-none d-md-block"><strong>COVID-19 vaccines are safe and effective<br></strong> 
+            Studies show that COVID-19 vaccines are very effective at keeping
+            you from getting COVID-19. Experts also think that getting a COVID-19
+            vaccine may help keep you from getting seriously ill even if you do
+            get COVID-19. These vaccines cannot give you the disease.
+          </p>
+        </div>
+        <div class="col-12 col-sm-6 order-sm-first shadow-lg">
+          <img class="img-fluid text-center" id="rowimageborder" src="https://www.cdc.gov/coronavirus/2019-ncov/images/communication/vaccine-facts/covid-vaccine-facts-doctor-1200x675-1.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="p-3 text-center">
+        <a class="btn btn-outline-warning btn-lg rounded-pill p-2" href="/request">Request the bed</a>
+        <a class="btn btn-outline-warning btn-lg rounded-pill p-2" href="/login">Hospital Login</a>
+    </div>
+</div>
 <%- include("partials/footer") %>
