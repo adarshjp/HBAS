@@ -32,3 +32,19 @@ body{
 {
     color: floralwhite;
 }
+#homecontainer{
+  padding-top: 10px;
+}
+#navbarnav{
+  border: 3px solid rgb(86, 25, 114);
+}
+#homekeepsafe{
+  letter-spacing: 5px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif'
+}
+#headingh3{
+  color:aquamarine;
+}
+#rowimageborder{
+  border: 10px solid rgb(73, 24, 95);
+}
