@@ -48,6 +48,9 @@ body{
 #rowimageborder{
   border: 10px solid rgb(73, 24, 95);
 }
+#hospcontainer{
+  padding-top: 15px;
+}
 #hosptable {
   table-layout: fixed;
   width: 100%; 
@@ -55,4 +58,7 @@ body{
 
 th,td {
   border: 1px solid black;
+}
+#admith3{
+  color: aquamarine;
 }
