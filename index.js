@@ -57,7 +57,20 @@ app.get("/",(req,res)=>{
 })
 
 app.get("/view",(req,res)=>{
-    res.render("view")
+    District.find({},(err,district)=>{
+        if(err) console.log(err)
+        else{
+            Hospital.find({},(err,hospital)=>{
+                if(err) console.log(err)
+                else {
+                    console.log(district)
+                    console.log(hospital)
+                    res.render("view",{district:district,hospital:hospital})
+                }
+                
+            })
+        }
+    })
 })
 // Patient Request form starts
 app.get("/request",(req,res)=>{
