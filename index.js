@@ -131,7 +131,11 @@ app.post("/request",(req,res)=>{
                                         var key2='occupiedbeds.'+type
                                         Hospital.findOneAndUpdate({_id:newpatadm.hospitalid},{$inc:{[key1]:-1,[key2]:1}},(err,updatedhosp)=>{
                                             if(err) console.log(err)
-                                            else console.log(updatedhosp)
+                                            else{
+                                                console.log(updatedhosp)
+                                                const msg="Bed allotted at "+updatedhosp.name+" Report to hospital within 3 hours"
+                                                //sendSms('+91'+newpatient.phoneno,msg)
+                                            } 
                                         })
                                     }
                                       
@@ -141,7 +145,7 @@ app.post("/request",(req,res)=>{
                             }
                         }
                     })
-                    res.redirect("/request")
+                    res.render("reqsuccess.ejs")
                 }
                     
             })
@@ -322,6 +326,8 @@ app.post("/discharge/:id/:status",isLoggedIn,(req,res)=>{
                         if(err) console.log(err)
                         else console.log(newpatadm)
                     })
+                    const msg="Bed alloted at "+allottedpatient.hospitalid+" Report to hospital within 3 hours.You can find the name in the website"
+                    //sendSms('+91'+allottedpatient.phoneno,msg)
                 }
 
             })
@@ -388,4 +394,24 @@ function getDistrictid(dname){
             
     })
     console.log(did)
+}
+
+/*var cron = require('node-cron');
+
+cron.schedule('* * * * *', () => {
+  console.log('running a task every minute');
+});*/
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+
+function sendSms(phone, message){
+  const client = require('twilio')(accountSid, authToken);
+  client.messages
+    .create({
+       body: message,
+       from: process.env.TWILIO_PHONE_NUMBER,
+       to: phone
+     })
+    .then(message => console.log(message.sid));
 }
