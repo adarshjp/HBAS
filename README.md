@@ -28,7 +28,7 @@ Other than the patients and the hospitals, a common person can see the availabil
   ![](/images/Hospital-Proces-flow.svg)
 
 ## Data Flow Diagram:
-     ![](images/Data-flow-diagram.svg)
+   ![](images/Data-flow-diagram.svg)
 
      
 
