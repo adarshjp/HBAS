@@ -1,6 +1,6 @@
-const District = require('./models/District');
-const Hospital=require('./models/Hospital')
-const Patient=require('./models/Patient')
+const District = require('./models/district');
+const Hospital=require('./models/hospital')
+const Patient=require('./models/patient')
 const PatientsAdmitted=require('./models/patientadmitted')
 
 const express=require('express'),
