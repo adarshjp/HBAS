@@ -1,62 +1,64 @@
 <%- include("partials/header") %>
-    <div class="container container-fluid text-center p-2">
-        <div class="row justify-content-center align-items-center p-2">
-            <div class="col-12 P-2">
-                <h3 class="p-2" id="admith3"><u>Patient Details</u></h3>
-            <table class="table table-striped table-dark p-2" id="hosptable">
-                <tr>
-                    <th>Patient Name</th>
-                    <td><%= patient.name %></td>
-                </tr>
-                <tr>
-                    <th>Patient ID</th>
-                    <td><%= patient._id %></td>
-                </tr>
-                <tr>
-                    <th>Age</th>
-                    <td><%= patient.age %></td>
-                </tr>
-                <tr>
-                    <th>Phone Number</th>
-                    <td><%= patient.phoneno %></td>
-                </tr>
-                <tr>
-                    <th>Address</th>
-                    <td><%= patient.address %></td>
-                </tr>
-                <tr>
-                    <th>District ID</th>
-                    <td><%= patient.districtid %></td>
-                </tr>
-                <tr>
-                    <th>Status</th>
-                    <td><%= patient.status %></td>
-                </tr>                    
-                <tr>
-                    <th>Request time</th>
-                    <td><%= patient.requesttime %></td>
-                </tr>
-                <tr>
-                    <th>Allotment time</th>
-                    <td><%= patient.allotmenttime %></td>
-                </tr>
-                <tr>
-                    <th>Type of bed requested</th>
-                    <td><%= patient.typeofbedreq %></td>
-                </tr>
-                <tr>
-                    <th>Caretaker's name</th>
-                    <td><%= patient.caretakername %></td>
-                </tr>
-                <tr>
-                    <th>Caretaker's phno</th>
-                    <td><%= patient.caretakerphno %></td>
-                </tr>
-            </table>
-            </div>
-            <div class="p-2 text-center">
-                <a class="btn btn-outline-warning rounded-pill btn-lg p-2" href="/home">Back</a>
-            </div>
-        </div>
+<div class="container container-fluid text-center p-2">
+  <div class="row justify-content-center align-items-center p-2">
+    <div class="col-12 P-2">
+      <h3 class="p-2" id="admith3"><u>Patient Details</u></h3>
+      <table class="table table-striped table-dark p-2" id="hosptable">
+        <tr>
+          <th>Patient Name</th>
+          <td><%= patient.name %></td>
+        </tr>
+        <tr>
+          <th>Patient ID</th>
+          <td><%= patient._id %></td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td><%= patient.age %></td>
+        </tr>
+        <tr>
+          <th>Phone Number</th>
+          <td><%= patient.phoneno %></td>
+        </tr>
+        <tr>
+          <th>Address</th>
+          <td><%= patient.address %></td>
+        </tr>
+        <tr>
+          <th>District ID</th>
+          <td><%= patient.districtid %></td>
+        </tr>
+        <tr>
+          <th>Status</th>
+          <td><%= patient.status %></td>
+        </tr>
+        <tr>
+          <th>Request time</th>
+          <td><%= patient.requesttime %></td>
+        </tr>
+        <tr>
+          <th>Allotment time</th>
+          <td><%= patient.allotmenttime %></td>
+        </tr>
+        <tr>
+          <th>Type of bed requested</th>
+          <td><%= patient.typeofbedreq %></td>
+        </tr>
+        <tr>
+          <th>Caretaker's name</th>
+          <td><%= patient.caretakername %></td>
+        </tr>
+        <tr>
+          <th>Caretaker's phno</th>
+          <td><%= patient.caretakerphno %></td>
+        </tr>
+      </table>
     </div>
+    <div class="p-2 text-center">
+      <a class="btn btn-outline-warning rounded-pill btn-lg p-2" href="/home"
+        >Back</a
+      >
+    </div>
+  </div>
+</div>
 <%- include("partials/footer") %>

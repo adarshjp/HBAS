@@ -1,6 +1,6 @@
-const District=require('../models/district')
-const Hospital=require('../models/hospital')
-const passport=require('passport')
+const District = require("../models/district");
+const Hospital = require("../models/hospital");
+const passport = require("passport");
 exports.registerGet = (req, res) => {
   res.render("register");
 };

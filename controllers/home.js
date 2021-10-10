@@ -1,3 +1,3 @@
-exports.home=(req,res)=>{
-    res.render("hosphome", { user: req.user });
-}
+exports.home = (req, res) => {
+  res.render("hosphome", { user: req.user });
+};
