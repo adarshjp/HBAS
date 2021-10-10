@@ -1,70 +1,69 @@
-html { 
-    font-size: calc(0.3em + 1vw); 
-  }
-body{
+html {
+  font-size: calc(0.3em + 1vw);
+}
+body {
   background-color: rgb(13, 31, 49);
   color: floralwhite;
 }
-#requestbody{
+#requestbody {
   padding: 30px 10px 20px 10px;
 }
-#requestcontainer{
-  background-color:rgb(28, 124, 153);
-  color:floralwhite;
+#requestcontainer {
+  background-color: rgb(28, 124, 153);
+  color: floralwhite;
 }
-#requesth3{
+#requesth3 {
   color: black;
 }
 
-#loginbody{
+#loginbody {
   padding: 45px 10px 20px 10px;
 }
-#logincontainer
-{
-    background-color: rgb(8, 73, 85);
-    width: fit-content;
-    
+#logincontainer {
+  background-color: rgb(8, 73, 85);
+  width: fit-content;
 }
 .avatar {
-        border-radius: 50%;
+  border-radius: 50%;
 }
-#loginrow
-{
-    color: floralwhite;
+#loginrow {
+  color: floralwhite;
 }
-#homecontainer{
+#homecontainer {
   padding-top: 10px;
 }
-#navbarnav{
+#navbarnav {
   border: 3px solid rgb(86, 25, 114);
 }
-#homekeepsafe{
+#homekeepsafe {
   letter-spacing: 5px;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', 'Geneva', 'Verdana', 'sans-serif'
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", "Geneva", "Verdana", "sans-serif";
 }
-#headingh3{
-  color:aquamarine;
+#headingh3 {
+  color: aquamarine;
 }
-#rowimageborder{
+#rowimageborder {
   border: 10px solid rgb(73, 24, 95);
 }
-#hospcontainer{
+#hospcontainer {
   padding-top: 15px;
 }
 #hosptable {
   table-layout: fixed;
-  width: 100%; 
-} 
+  width: 100%;
+}
 
-th,td {
+th,
+td {
   border: 1px solid black;
 }
-#admith3{
+#admith3 {
   color: aquamarine;
 }
-#viewpatientform{
+#viewpatientform {
   display: inline;
 }
-#successh3{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+#successh3 {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
 }
